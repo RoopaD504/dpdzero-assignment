@@ -3,5 +3,6 @@ export const navConstants = {
     WHERE_TO_GO: "Where to go",
     WHATS_NEW: "What's new",
     BUSINESS: "Business & Partnership",
-  }
+  },
+  TEXT:'Login'
 };

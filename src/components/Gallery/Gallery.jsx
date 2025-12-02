@@ -2,22 +2,23 @@ import React from "react";
 import Masonry from "react-masonry-css";
 import { FaPlay } from "react-icons/fa";
 import { galleryImages } from "./galleryData";
+import SectionTitle from "../common/SectionTitle";
 
 const breakpoints = {
-  default: 3,
-  1024: 3,
-  768: 2,
-  500: 1,
+  default: 3,   
+  1024: 3,      
+  768: 2,       
+  500: 1,       
 };
 
-const Gallery = () => {
+const Gallery = ({title}) => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-3xl font-semibold text-teal-800 mb-6">Gallery</h2>
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10">
+      <SectionTitle title={title}/>
 
       <Masonry
         breakpointCols={breakpoints}
-        className="flex gap-4"
+        className="flex gap-2 sm:gap-4"
         columnClassName="masonry-column"
       >
         {galleryImages.map((item) => (
@@ -27,7 +28,7 @@ const Gallery = () => {
           >
             <img
               src={item.src}
-              alt=""
+              alt={item.alt || "Gallery image"}
               className="w-full rounded-xl transition-transform duration-300 hover:scale-105"
             />
 
@@ -38,7 +39,7 @@ const Gallery = () => {
                 rel="noopener noreferrer"
                 className="absolute inset-0 bg-black/40 flex items-center justify-center"
               >
-                <FaPlay className="text-white text-4xl p-3 bg-black/50 rounded-full" />
+                <FaPlay className="text-white text-3xl sm:text-4xl md:text-5xl p-2 sm:p-3 bg-black/50 rounded-full" />
               </a>
             )}
           </div>

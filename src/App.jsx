@@ -1,33 +1,47 @@
-import React from 'react'
-import Navbar from './components/common/Navbar/Navbar'
-import { Footer } from './components/common/Footer'
-import { heroData } from './components/constants/heroConstants'
-import { Hero } from './components/common/Hero/Hero'
-import Destinations from './pages/Destinations'
-import Attractions from './pages/Attractions'
-import PracticalAdviceSection from './components/Advice/PracticalAdviceSection'
-import SectionTitle from './components/common/SectionTitle'
-import { adviceData } from './components/constants/adviceConstants'
-import NearbySection from './components/NearbyPlaces/NearbySection'
-import Gallery from './components/Gallery/Gallery'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/common/Navbar/Navbar";
+import { Footer } from "./components/common/Footer";
+import { heroData } from "./components/constants/heroConstants";
+import { Hero } from "./components/common/Hero/Hero";
+import Destinations from "./pages/Destinations";
+import WorkInProgress from "./components/common/Progress/WorkInProgress";
 
 function App() {
   return (
-    <div>
-      <Navbar/>
-        <Hero
-        image={heroData.hampi.image}
-        title={heroData.hampi.title}
-        subtitle={heroData.hampi.subtitle}
-      />
-      <Destinations/>
-      <Attractions />
-      <PracticalAdviceSection  title={adviceData.sectionTitle} />
-      <NearbySection/>
-      <Gallery/>
-      <Footer/>
-    </div>
-  )
+    <Router>
+      <Navbar />
+
+      <Routes>
+
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero
+                image={heroData.hampi.image}
+                title={heroData.hampi.title}
+                subtitle={heroData.hampi.subtitle}
+              />
+              <Destinations />
+            </>
+          }
+        />
+
+        <Route path="/where-to-go" element={<WorkInProgress />} />
+        <Route path="/whats-new" element={<WorkInProgress />} />
+        <Route path="/business" element={<WorkInProgress />} />
+        <Route path="/Login" element={<WorkInProgress />} />
+
+
+        <Route path="*" element={<WorkInProgress />} />
+
+      </Routes>
+
+      <Footer />
+    </Router>
+  );
 }
 
-export default App
+export default App;

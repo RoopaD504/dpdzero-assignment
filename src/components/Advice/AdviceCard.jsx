@@ -20,11 +20,11 @@ const AdviceCard = ({ icon, title, points, linkText }) => {
         </span>
       </div>
 
-      <h3 className="text-md font-semibold ">{title}</h3>
+      <h3 className="text-lg font-semibold ">{title}</h3>
 
       <ul className="mb-4">
         {points.map((p, i) => (
-          <li key={i} className="leading-relaxed text-xs">• {p}</li>
+          <li key={i} className="leading-relaxed text-md">• {p}</li>
         ))}
       </ul>
 
@@ -32,5 +32,4 @@ const AdviceCard = ({ icon, title, points, linkText }) => {
     </div>
   );
 };
-
 export default AdviceCard;
